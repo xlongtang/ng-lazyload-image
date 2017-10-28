@@ -4,16 +4,16 @@ import 'rxjs/add/operator/debounceTime';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import {
-  AfterContentInit,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Input,
-  NgZone,
-  Output,
-  OnChanges,
-  OnDestroy,
-  SimpleChanges
+    AfterContentInit,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Input,
+    NgZone,
+    Output,
+    OnChanges,
+    OnDestroy,
+    SimpleChanges
 } from '@angular/core';
 import { getScrollListener } from './scroll-listener';
 import { lazyLoadImage } from './lazyload-image';
@@ -29,6 +29,11 @@ interface LazyLoadImageDirectiveProps {
     offset: number;
 }
 
+export interface IOnLoadedPayload {
+    success: boolean,
+    element: ElementRef
+}
+
 @Directive({
     selector: '[lazyLoad]'
 })
@@ -39,7 +44,7 @@ export class LazyLoadImageDirective implements OnChanges, AfterContentInit, OnDe
     @Input() scrollTarget = target; // Change the node we should listen for scroll events on, default is window
     @Input() scrollObservable;      // Pass your own scroll emitter
     @Input() offset: number;        // The number of px a image should be loaded before it is in view port
-    @Output() onLoad: EventEmitter<boolean> = new EventEmitter(); // Callback when an image is loaded
+    @Output() onLoad: EventEmitter<IOnLoadedPayload> = new EventEmitter(); // Callback when an image is loaded
     private propertyChanges$: ReplaySubject<LazyLoadImageDirectiveProps>;
     private elementRef: ElementRef;
     private ngZone: NgZone;
@@ -91,7 +96,10 @@ export class LazyLoadImageDirective implements OnChanges, AfterContentInit, OnDe
                         props.offset
                     )
                 ))
-                .subscribe(success => this.onLoad.emit(success));
+                .subscribe(success => this.onLoad.emit({
+                    success: success,
+                    element: this.elementRef
+                }));
         });
     }
 

@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.0.0 (2018-05-19)
+
+### Braking changes
+* Upgrade rxjs to version 6
+* Upgrade angular compiler to version 6
+
+### Bugfix
+* Empty rect with an offset shouldn't be loaded. Closes [#333](https://github.com/tjoskar/ng-lazyload-image/issues/333) Thanks to [sapierens](https://github.com/sapierens) :tada:
+
+## 3.4.2 (2018-01-09)
+
+### Bugfix
+* ReferenceError: HTMLElement is not defined. Closes [#271](https://github.com/tjoskar/ng-lazyload-image/issues/271) Thanks to [sapierens](https://github.com/sapierens) :tada:
+
+## 3.4.1 (2018-01-07)
+
+### Bugfix
+* Check against container bounds if given. Closes [#241](https://github.com/tjoskar/ng-lazyload-image/issues/241) Thanks to [sapierens](https://github.com/sapierens) :tada:
+
+## 3.4.0 (2018-01-01)
+
+### Feature
+* Add support for srcset. Closes [#175](https://github.com/tjoskar/ng-lazyload-image/issues/175) Thanks to [sapierens](https://github.com/sapierens) :tada:
+
+## 3.3.5 (2017-11-12)
+
+* Downgrade typescript. Closes [#222](https://github.com/tjoskar/ng-lazyload-image/issues/222)
+
+## 3.3.4 (2017-11-05)
+
+* Upgrade to angular 5
+
 ## 3.3.3 (2017-09-29)
 
 ### Bugfix

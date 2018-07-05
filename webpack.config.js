@@ -4,12 +4,12 @@ const webpack = require('webpack');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 module.exports = {
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     cache: true,
+    mode: ENV,
 
     entry: {
         'polyfills': './example/polyfills.ts',
-        'vendor': './example/vendor.ts',
         'main': './example/boot.ts'
     },
 
@@ -43,7 +43,7 @@ module.exports = {
             { test: /\.scss$/, loaders: ["style", "css", "sass"] },
 
             // support for .html as raw text
-            { test: /\.html$/,  loader: 'raw-loader', exclude: [ './src/index.html' ] }
+            { test: /\.html$/, loader: 'raw-loader', exclude: ['./src/index.html'] }
         ],
     },
 
@@ -62,8 +62,9 @@ module.exports = {
         new webpack.DefinePlugin({
             ENV: JSON.stringify(ENV)
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendor', 'polyfills']
-        })
+        new webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)(@angular|esm5)/,
+            path.resolve(__dirname, 'src')
+        )
     ]
 };

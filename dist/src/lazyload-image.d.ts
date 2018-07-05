@@ -1,10 +1,5 @@
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/of';
-import { Observable } from 'rxjs/Observable';
-export declare function isVisible(element: HTMLElement, threshold?: number, _window?: Window): boolean;
-export declare function lazyLoadImage(image: HTMLElement, imagePath: string, defaultImagePath: string, errorImgPath: string, offset: number): (scrollObservable: Observable<Event>) => Observable<boolean>;
+import { Observable } from 'rxjs';
+export declare function isVisible(element: HTMLElement, threshold: number, _window: Window, scrollContainer?: HTMLElement): boolean;
+export declare function isChildOfPicture(element: HTMLImageElement | HTMLDivElement): boolean;
+export declare function isImageElement(element: HTMLImageElement | HTMLDivElement): element is HTMLImageElement;
+export declare function lazyLoadImage(element: HTMLImageElement | HTMLDivElement, imagePath: string, defaultImagePath: string, errorImgPath: string, offset: number, useSrcset?: boolean, scrollContainer?: HTMLElement): (scrollObservable: Observable<Event>) => Observable<boolean>;

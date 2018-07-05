@@ -1,6 +1,6 @@
 {
   "name": "ng-lazyload-image",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Lazy image loader for Angular > v2",
   "main": "index.js",
   "scripts": {
@@ -48,7 +48,7 @@
     "@angular/router": "^6.0.2",
     "@types/core-js": "^0.9.46",
     "@types/mocha": "^5.2.0",
-    "@types/node": "^10.1.2",
+    "@types/node": "10.1.4",
     "awesome-typescript-loader": "^5.0.0",
     "copyfiles": "^2.0.0",
     "core-js": "^2.5.6",

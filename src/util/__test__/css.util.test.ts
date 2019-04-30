@@ -1,5 +1,9 @@
-import { is, isNot } from './helpers/assert';
-import { removeCssClassName, addCssClassName, hasCssClassName } from '../src/utils';
+import { is } from '@tjoskar/assert';
+import {
+    addCssClassName,
+    hasCssClassName,
+    removeCssClassName
+} from '../css.util';
 
 describe('Utils function', () => {
     const element = {} as HTMLImageElement;

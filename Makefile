@@ -1,7 +1,7 @@
 # deployment
 
-BuildDist := ./dist/polpware/bs-components
+BuildDist := ./dist
 BuildDoc := ./docs
-DeployTarget := ./deployment/polpware-bs-components
+DeployTarget := ./deployment/ng-lazyload-image
 
 include Makefile.deployment

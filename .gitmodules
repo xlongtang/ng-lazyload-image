@@ -1,0 +1,3 @@
+[submodule "deployment/ng-lazyload-image"]
+	path = deployment/ng-lazyload-image
+	url = https://github.com/polpware-frontend-modules/ng-lazyload-image.git
